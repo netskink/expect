@@ -1,0 +1,18 @@
+#!/usr/bin/expect
+
+set timeout 20
+set ip [lindex $argv 0]
+set user [lindex $argv 1]
+set passw [lindex $argv 2]
+# crap out if we don't have all three arguments
+if { $ip == "" || $user == "" || $passw == "" } {
+	puts "Usage: <ip addy> <user> <password>"
+	exit 1
+}
+
+
+spawn  scp foo.txt "$user\@$ip:/tmp/."
+expect "password:"
+send "$passw\r";
+interact
+
