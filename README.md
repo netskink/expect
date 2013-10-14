@@ -1,4 +1,4 @@
 expect
 ======
 
-sample expect scripts
+sample expect scripts. Inital find.
